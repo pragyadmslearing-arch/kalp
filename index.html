@@ -1,6 +1,6 @@
 ```html
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="gu">
 
 <head>
 <meta charset="UTF-8">
@@ -19,18 +19,17 @@ box-sizing:border-box;
 font-family:'Mukta',sans-serif;
 }
 
+/* Modern animated background */
+
 body{
 min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-overflow-x:hidden;
 background:linear-gradient(-45deg,#fdf6ec,#ffe0b2,#ffd180,#f39c12);
 background-size:400% 400%;
 animation:gradientBG 10s ease infinite;
 }
-
-/* animated gradient */
 
 @keyframes gradientBG{
 0%{background-position:0% 50%}
@@ -38,15 +37,14 @@ animation:gradientBG 10s ease infinite;
 100%{background-position:0% 50%}
 }
 
-/* language switch */
+/* Language buttons */
 
 .lang-bar{
 position:fixed;
 top:20px;
 right:20px;
 background:rgba(255,255,255,0.8);
-backdrop-filter:blur(10px);
-padding:4px;
+padding:5px;
 border-radius:30px;
 display:flex;
 box-shadow:0 4px 15px rgba(0,0,0,0.1);
@@ -56,10 +54,9 @@ box-shadow:0 4px 15px rgba(0,0,0,0.1);
 border:none;
 background:none;
 padding:8px 15px;
-font-weight:700;
 cursor:pointer;
+font-weight:700;
 border-radius:20px;
-color:#666;
 }
 
 .lang-btn.active{
@@ -67,20 +64,19 @@ background:#c67d1d;
 color:white;
 }
 
-/* main card */
+/* Card */
 
 .card{
 width:92%;
 max-width:500px;
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.9);
 border-radius:25px;
 padding:30px 20px;
-box-shadow:0 15px 40px rgba(0,0,0,0.15);
 text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,0.15);
 }
 
-/* profile */
+/* Profile */
 
 .profile-img{
 width:120px;
@@ -92,8 +88,8 @@ box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 h1{
-font-size:1.8rem;
 margin:15px 0 5px;
+font-size:1.8rem;
 }
 
 .subtitle{
@@ -102,7 +98,7 @@ font-weight:700;
 margin-bottom:20px;
 }
 
-/* feature grid */
+/* Features */
 
 .feature-grid{
 display:grid;
@@ -112,13 +108,12 @@ margin:20px 0;
 }
 
 .feature-item{
-background:rgba(255,255,255,0.6);
-padding:15px;
-border-radius:15px;
-font-weight:500;
+background:#fff7ec;
+padding:12px;
+border-radius:12px;
 }
 
-/* image gallery */
+/* Images */
 
 .gallery{
 display:grid;
@@ -130,35 +125,23 @@ margin:20px 0;
 .gallery img{
 width:100%;
 border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.15);
-transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-/* call button */
+/* Call button */
 
 .call-btn{
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 gap:10px;
 background:linear-gradient(135deg,#c67d1d,#f39c12);
 color:white;
-padding:16px;
+padding:15px;
 border-radius:16px;
 text-decoration:none;
 font-weight:700;
-font-size:1.1rem;
 margin-top:10px;
-box-shadow:0 8px 25px rgba(198,125,29,0.4);
-transition:0.2s;
-}
-
-.call-btn:active{
-transform:scale(0.95);
 }
 
 .footer{
@@ -173,44 +156,47 @@ color:#777;
 <body>
 
 <div class="lang-bar">
-<button id="btn-hi" class="lang-btn active" onclick="updateLang('hi')">हिन्दी</button>
-<button id="btn-gu" class="lang-btn" onclick="updateLang('gu')">ગુજરાતી</button>
+<button id="btn-gu" class="lang-btn active" onclick="updateLang('gu')">ગુજરાતી</button>
+<button id="btn-hi" class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
 </div>
 
 <main class="card">
 
 <img src="https://ui-avatars.com/api/?name=Kalpesh+Maheta&background=c67d1d&color=fff&size=128" class="profile-img">
 
-<h1 id="name">कल्पेश प्रवीण महेता</h1>
+<h1 id="name">કલ્પેશ પ્રવીણ મહેતા</h1>
 
-<div class="subtitle" id="biz">अनाज खरीद व्यवसाय</div>
+<div class="subtitle" id="biz">અનાજ ખરીદી વ્યવસાય</div>
 
 <div class="feature-grid">
 
-<div class="feature-item">🌾 <span id="f1">सर्वोत्तम भाव</span></div>
-<div class="feature-item">⚖️ <span id="f2">सटीक वजन</span></div>
-<div class="feature-item">💰 <span id="f3">नकद भुगतान</span></div>
-<div class="feature-item">🤝 <span id="f4">पक्का भरोसा</span></div>
+<div class="feature-item">🌾 <span id="f1">શ્રેષ્ઠ ભાવ</span></div>
+<div class="feature-item">⚖️ <span id="f2">ચોક્કસ વજન</span></div>
+<div class="feature-item">💰 <span id="f3">રોકડ ચુકવણી</span></div>
+<div class="feature-item">🤝 <span id="f4">પાકો વિશ્વાસ</span></div>
 
 </div>
 
-<!-- Image Gallery -->
+<!-- IMAGE GALLERY -->
 
 <div class="gallery">
-<img src="photo/photo1.jpeg" alt="Anaj Image 1">
-<img src="photo/photo2.jpeg" alt="Anaj Image 2">
+
+<img src="kalp/photo/photo%20(1).jpeg" alt="Anaj Image 1">
+
+<img src="kalp/photo/photo%20(2).jpeg" alt="Anaj Image 2">
+
 </div>
 
 <p id="desc" style="margin-bottom:25px;color:#555">
 
-हम किसानों से गेहूं, बाजरा और सभी प्रकार के अनाज की सीधी खरीद करते हैं। 
-ईमानदारी और पारदर्शिता ही हमारी पहचान है।
+અમે ખેડૂતો પાસેથી ઘઉં, બાજરી અને તમામ પ્રકારના અનાજની સીધી ખરીદી કરીએ છીએ.  
+પ્રામાણિકતા અને પારદર્શિતા એ જ અમારી ઓળખ છે.
 
 </p>
 
 <a href="tel:9825565053" class="call-btn">
 
-📞 <span id="btn">अभी कॉल करें</span>
+📞 <span id="btn">અત્યારે જ કોલ કરો</span>
 
 </a>
 
@@ -225,17 +211,6 @@ color:#777;
 <script>
 
 const t={
-hi:{
-name:"कल्पेश प्रवीण महेता",
-biz:"अनाज खरीद व्यवसाय",
-f1:"सर्वोत्तम भाव",
-f2:"सटीक वजन",
-f3:"नकद भुगतान",
-f4:"पक्का भरोसा",
-desc:"हम किसानों से गेहूं, बाजरा और सभी प्रकार के अनाज की सीधी खरीद करते हैं। ईमानदारी और पारदर्शिता ही हमारी पहचान है।",
-btn:"अभी कॉल करें"
-},
-
 gu:{
 name:"કલ્પેશ પ્રવીણ મહેતા",
 biz:"અનાજ ખરીદી વ્યવસાય",
@@ -245,6 +220,17 @@ f3:"રોકડ ચુકવણી",
 f4:"પાકો વિશ્વાસ",
 desc:"અમે ખેડૂતો પાસેથી ઘઉં, બાજરી અને તમામ પ્રકારના અનાજની સીધી ખરીદી કરીએ છીએ. પ્રામાણિકતા અને પારદર્શિતા એ જ અમારી ઓળખ છે.",
 btn:"અત્યારે જ કોલ કરો"
+},
+
+hi:{
+name:"कल्पेश प्रवीण महेता",
+biz:"अनाज खरीद व्यवसाय",
+f1:"सर्वोत्तम भाव",
+f2:"सटीक वजन",
+f3:"नकद भुगतान",
+f4:"पक्का भरोसा",
+desc:"हम किसानों से गेहूं, बाजरा और सभी प्रकार के अनाज की सीधी खरीद करते हैं। ईमानदारी और पारदर्शिता ही हमारी पहचान है।",
+btn:"अभी कॉल करें"
 }
 }
 
@@ -259,8 +245,8 @@ document.getElementById("f4").innerText=t[lang].f4
 document.getElementById("desc").innerText=t[lang].desc
 document.getElementById("btn").innerText=t[lang].btn
 
-document.getElementById("btn-hi").classList.toggle("active",lang==="hi")
 document.getElementById("btn-gu").classList.toggle("active",lang==="gu")
+document.getElementById("btn-hi").classList.toggle("active",lang==="hi")
 
 }
 
@@ -269,4 +255,5 @@ document.getElementById("btn-gu").classList.toggle("active",lang==="gu")
 </body>
 </html>
 ```
+
 
