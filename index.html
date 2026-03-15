@@ -19,68 +19,63 @@ box-sizing:border-box;
 font-family:'Mukta',sans-serif;
 }
 
-/* BLACK ANIMATED BACKGROUND */
+/* Mobile black animated background */
 
 body{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
 background:#0b0b0b;
-overflow:hidden;
 color:white;
+padding:15px;
+overflow-x:hidden;
 }
 
-/* animated glowing circles */
-
-body::before, body::after{
-content:'';
-position:absolute;
-width:500px;
-height:500px;
-border-radius:50%;
-filter:blur(120px);
-opacity:0.6;
-animation:move 10s infinite alternate;
-}
+/* glowing animation */
 
 body::before{
+content:'';
+position:fixed;
+width:300px;
+height:300px;
 background:#f39c12;
-top:-100px;
-left:-100px;
+filter:blur(150px);
+top:-80px;
+left:-80px;
+opacity:0.6;
+animation:move 8s infinite alternate;
 }
 
 body::after{
+content:'';
+position:fixed;
+width:300px;
+height:300px;
 background:#ff6b00;
-bottom:-100px;
-right:-100px;
+filter:blur(150px);
+bottom:-80px;
+right:-80px;
+opacity:0.6;
+animation:move 8s infinite alternate;
 }
 
 @keyframes move{
 0%{transform:translate(0,0)}
-100%{transform:translate(200px,150px)}
+100%{transform:translate(120px,100px)}
 }
 
-/* language switch */
+/* language buttons */
 
 .lang-bar{
-position:fixed;
-top:20px;
-right:20px;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-padding:5px;
-border-radius:30px;
 display:flex;
+justify-content:flex-end;
+margin-bottom:10px;
 }
 
 .lang-btn{
 border:none;
-background:none;
-padding:8px 15px;
+background:#222;
 color:white;
-cursor:pointer;
+padding:6px 12px;
 border-radius:20px;
+margin-left:6px;
 font-weight:700;
 }
 
@@ -88,56 +83,58 @@ font-weight:700;
 background:#f39c12;
 }
 
-/* card */
+/* main card */
 
 .card{
-position:relative;
-width:92%;
-max-width:500px;
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(20px);
-border-radius:25px;
-padding:30px 20px;
-text-align:center;
-box-shadow:0 20px 60px rgba(0,0,0,0.6);
+border-radius:20px;
+padding:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 10px 40px rgba(0,0,0,0.6);
 }
 
 /* profile */
 
-.profile-img{
-width:120px;
-height:120px;
-border-radius:50%;
-border:4px solid #f39c12;
-margin-top:-80px;
+.profile{
+text-align:center;
+margin-bottom:15px;
 }
 
-/* text */
+.profile img{
+width:90px;
+height:90px;
+border-radius:50%;
+border:3px solid #f39c12;
+}
+
+/* title */
 
 h1{
-margin:15px 0 5px;
-font-size:1.8rem;
+font-size:20px;
+margin-top:10px;
 }
 
 .subtitle{
 color:#f39c12;
 font-weight:700;
-margin-bottom:20px;
+margin-top:5px;
 }
 
 /* features */
 
-.feature-grid{
+.features{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:12px;
-margin:20px 0;
+gap:8px;
+margin:15px 0;
 }
 
-.feature-item{
-background:rgba(255,255,255,0.05);
-padding:12px;
-border-radius:12px;
+.feature{
+background:#161616;
+padding:10px;
+border-radius:10px;
+text-align:center;
+font-size:14px;
 }
 
 /* images */
@@ -145,36 +142,46 @@ border-radius:12px;
 .gallery{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:10px;
-margin:20px 0;
+gap:8px;
+margin:15px 0;
 }
 
 .gallery img{
 width:100%;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,0.7);
+border-radius:10px;
 }
 
-/* button */
+/* description */
 
-.call-btn{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:10px;
-background:linear-gradient(135deg,#f39c12,#ff6b00);
-color:white;
-padding:15px;
-border-radius:16px;
-text-decoration:none;
-font-weight:700;
+.desc{
+font-size:14px;
+line-height:1.6;
+color:#ddd;
 margin-top:10px;
 }
 
+/* call button */
+
+.call{
+display:block;
+text-align:center;
+background:linear-gradient(135deg,#f39c12,#ff6b00);
+padding:14px;
+border-radius:12px;
+margin-top:18px;
+text-decoration:none;
+color:white;
+font-weight:700;
+font-size:16px;
+}
+
+/* footer */
+
 .footer{
-margin-top:25px;
-font-size:0.85rem;
-opacity:0.7;
+text-align:center;
+margin-top:15px;
+font-size:12px;
+color:#aaa;
 }
 
 </style>
@@ -183,28 +190,32 @@ opacity:0.7;
 <body>
 
 <div class="lang-bar">
-<button id="btn-gu" class="lang-btn active" onclick="updateLang('gu')">ગુજરાતી</button>
-<button id="btn-hi" class="lang-btn" onclick="updateLang('hi')">हिन्दी</button>
+<button id="btn-gu" class="lang-btn active" onclick="setLang('gu')">ગુજરાતી</button>
+<button id="btn-hi" class="lang-btn" onclick="setLang('hi')">हिन्दी</button>
 </div>
 
-<main class="card">
+<div class="card">
 
-<img src="https://ui-avatars.com/api/?name=Kalpesh+Maheta&background=f39c12&color=fff&size=128" class="profile-img">
+<div class="profile">
+
+<img src="https://ui-avatars.com/api/?name=Kalpesh+Maheta&background=f39c12&color=fff">
 
 <h1 id="name">કલ્પેશ પ્રવીણ મહેતા</h1>
 
-<div class="subtitle" id="biz">અનાજ ખરીદી વ્યવસાય</div>
-
-<div class="feature-grid">
-
-<div class="feature-item">🌾 <span id="f1">શ્રેષ્ઠ ભાવ</span></div>
-<div class="feature-item">⚖️ <span id="f2">ચોક્કસ વજન</span></div>
-<div class="feature-item">💰 <span id="f3">રોકડ ચુકવણી</span></div>
-<div class="feature-item">🤝 <span id="f4">પાકો વિશ્વાસ</span></div>
+<div class="subtitle" id="biz">
+અનાજ ખરીદી વ્યવસાય
+</div>
 
 </div>
 
-<!-- images -->
+<div class="features">
+
+<div class="feature">🌾 <span id="f1">શ્રેષ્ઠ ભાવ</span></div>
+<div class="feature">⚖️ <span id="f2">ચોક્કસ વજન</span></div>
+<div class="feature">💰 <span id="f3">રોકડ ચુકવણી</span></div>
+<div class="feature">🤝 <span id="f4">પાકો વિશ્વાસ</span></div>
+
+</div>
 
 <div class="gallery">
 
@@ -214,46 +225,16 @@ opacity:0.7;
 
 </div>
 
-<p id="desc">
+<p class="desc" id="desc">
 
 અમે ખેડૂતો પાસેથી ઘઉં, બાજરી અને તમામ પ્રકારના અનાજની સીધી ખરીદી કરીએ છીએ.  
-પ્રામાણિકતા અને પારદર્શિતા એ જ અમારી ઓળખ છે.
-
-</p>
-  <p style="margin-top:20px;line-height:1.7;color:#ddd;font-size:16px">
-
-અમે વર્ષોથી ખેડૂતો અને વેપારીઓ વચ્ચે વિશ્વાસનું મજબૂત બંધન બનાવીને અનાજ ખરીદીનો વ્યવસાય ચલાવી રહ્યા છીએ.  
-અમારું મુખ્ય ધ્યેય ખેડૂતોને તેમની મહેનતનું યોગ્ય અને શ્રેષ્ઠ મૂલ્ય મળવું છે.
-
-અહીં ઘઉં, બાજરી અને અન્ય તમામ પ્રકારના અનાજની ખરીદી સંપૂર્ણ પારદર્શિતા અને સચ્ચાઈ સાથે કરવામાં આવે છે.  
-સચોટ વજન, તરત જ રોકડ ચુકવણી અને વિશ્વાસભર્યો વ્યવહાર એ અમારી સૌથી મોટી ઓળખ છે.
-
-અમે દરેક ખેડૂતને પરિવારના સભ્ય જેવી માન્યતા આપીએ છીએ અને તેમના પરિશ્રમને યોગ્ય સન્માન આપીએ છીએ.  
-વર્ષોનો અનુભવ, પ્રામાણિકતા અને ગ્રાહકોનો વિશ્વાસ અમારી સફળતાનો આધાર છે.
-
-જો તમને અનાજ વેચવાનું હોય અથવા યોગ્ય ભાવ વિશે માહિતી જોઈએ હોય,  
-તો નિઃસંકોચ અમારો સંપર્ક કરો.
-
-</p>
-  <p style="margin-top:20px;line-height:1.7;color:#ddd;font-size:16px">
-
-हम कई वर्षों से किसानों और व्यापारियों के बीच भरोसे के साथ अनाज खरीद का व्यवसाय कर रहे हैं।  
-हमारा मुख्य उद्देश्य किसानों को उनकी मेहनत का उचित और सर्वोत्तम मूल्य दिलाना है।
-
-यहाँ गेहूं, बाजरा और सभी प्रकार के अनाज की खरीद पूरी ईमानदारी और पारदर्शिता के साथ की जाती है।  
-सटीक वजन, तुरंत नकद भुगतान और भरोसेमंद व्यवहार हमारी पहचान है।
-
-हम हर किसान को परिवार के सदस्य की तरह मानते हैं और उनकी मेहनत का सम्मान करते हैं।  
-सालों का अनुभव, विश्वास और ईमानदारी ही हमारी सबसे बड़ी पूंजी है।
-
-यदि आपको अनाज बेचना हो या सही भाव की जानकारी चाहिए,  
-तो बेझिझक हमसे संपर्क करें।
+પ્રામાણિકતા, યોગ્ય ભાવ અને વિશ્વાસ એ જ અમારી ઓળખ છે.
 
 </p>
 
-<a href="tel:9825565053" class="call-btn">
+<a href="tel:9825565053" class="call">
 
-📞 <span id="btn">અત્યારે જ કોલ કરો</span>
+📞 <span id="calltext">અત્યારે જ કોલ કરો</span>
 
 </a>
 
@@ -263,11 +244,11 @@ opacity:0.7;
 
 </div>
 
-</main>
+</div>
 
 <script>
 
-const t={
+const text={
 gu:{
 name:"કલ્પેશ પ્રવીણ મહેતા",
 biz:"અનાજ ખરીદી વ્યવસાય",
@@ -275,10 +256,9 @@ f1:"શ્રેષ્ઠ ભાવ",
 f2:"ચોક્કસ વજન",
 f3:"રોકડ ચુકવણી",
 f4:"પાકો વિશ્વાસ",
-desc:"અમે ખેડૂતો પાસેથી ઘઉં, બાજરી અને તમામ પ્રકારના અનાજની સીધી ખરીદી કરીએ છીએ. પ્રામાણિકતા અને પારદર્શિતા એ જ અમારી ઓળખ છે.",
-btn:"અત્યારે જ કોલ કરો"
+desc:"અમે ખેડૂતો પાસેથી ઘઉં, બાજરી અને તમામ પ્રકારના અનાજની સીધી ખરીદી કરીએ છીએ. પ્રામાણિકતા, યોગ્ય ભાવ અને વિશ્વાસ એ જ અમારી ઓળખ છે.",
+call:"અત્યારે જ કોલ કરો"
 },
-
 hi:{
 name:"कल्पेश प्रवीण महेता",
 biz:"अनाज खरीद व्यवसाय",
@@ -286,24 +266,24 @@ f1:"सर्वोत्तम भाव",
 f2:"सटीक वजन",
 f3:"नकद भुगतान",
 f4:"पक्का भरोसा",
-desc:"हम किसानों से गेहूं, बाजरा और सभी प्रकार के अनाज की सीधी खरीद करते हैं। ईमानदारी और पारदर्शिता ही हमारी पहचान है।",
-btn:"अभी कॉल करें"
+desc:"हम किसानों से गेहूं, बाजरा और सभी प्रकार के अनाज की सीधी खरीद करते हैं। ईमानदारी और उचित मूल्य हमारी पहचान है।",
+call:"अभी कॉल करें"
 }
 }
 
-function updateLang(lang){
+function setLang(l){
 
-document.getElementById("name").innerText=t[lang].name
-document.getElementById("biz").innerText=t[lang].biz
-document.getElementById("f1").innerText=t[lang].f1
-document.getElementById("f2").innerText=t[lang].f2
-document.getElementById("f3").innerText=t[lang].f3
-document.getElementById("f4").innerText=t[lang].f4
-document.getElementById("desc").innerText=t[lang].desc
-document.getElementById("btn").innerText=t[lang].btn
+document.getElementById("name").innerText=text[l].name
+document.getElementById("biz").innerText=text[l].biz
+document.getElementById("f1").innerText=text[l].f1
+document.getElementById("f2").innerText=text[l].f2
+document.getElementById("f3").innerText=text[l].f3
+document.getElementById("f4").innerText=text[l].f4
+document.getElementById("desc").innerText=text[l].desc
+document.getElementById("calltext").innerText=text[l].call
 
-document.getElementById("btn-gu").classList.toggle("active",lang==="gu")
-document.getElementById("btn-hi").classList.toggle("active",lang==="hi")
+document.getElementById("btn-gu").classList.toggle("active",l==="gu")
+document.getElementById("btn-hi").classList.toggle("active",l==="hi")
 
 }
 
