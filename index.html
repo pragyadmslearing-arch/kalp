@@ -1,12 +1,12 @@
 
 <!DOCTYPE html>
 <html lang="gu">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kalpesh Pravin Maheta | Anaj Business</title>
+<title>કલ્પેશ પ્રવીણ મહેતા | અનાજ ખરીદી</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -20,77 +20,61 @@ font-family:'Mukta',sans-serif;
 }
 
 body{
-background:#0a0a0a;
+background:#0e0e0e;
 color:white;
+display:flex;
+justify-content:center;
 padding:15px;
 }
 
-/* glowing animation */
+/* mobile container */
+
+.container{
+width:100%;
+max-width:420px;
+}
+
+/* glowing background */
 
 body::before{
 content:'';
 position:fixed;
-width:300px;
-height:300px;
+width:250px;
+height:250px;
 background:#f39c12;
-filter:blur(160px);
+filter:blur(150px);
 top:-80px;
 left:-80px;
-opacity:0.5;
-animation:move 10s infinite alternate;
+opacity:.5;
 }
 
 body::after{
 content:'';
 position:fixed;
-width:300px;
-height:300px;
+width:250px;
+height:250px;
 background:#ff6b00;
-filter:blur(160px);
+filter:blur(150px);
 bottom:-80px;
 right:-80px;
-opacity:0.5;
-animation:move 10s infinite alternate;
-}
-
-@keyframes move{
-0%{transform:translate(0,0)}
-100%{transform:translate(150px,120px)}
-}
-
-/* language */
-
-.lang{
-text-align:right;
-margin-bottom:10px;
-}
-
-.lang button{
-background:#222;
-color:white;
-border:none;
-padding:6px 12px;
-border-radius:20px;
-margin-left:5px;
-}
-
-.lang button.active{
-background:#f39c12;
+opacity:.5;
 }
 
 /* card */
 
 .card{
 background:rgba(255,255,255,0.05);
-border-radius:20px;
-padding:20px;
 backdrop-filter:blur(12px);
+border-radius:22px;
+padding:22px;
+box-shadow:0 15px 40px rgba(0,0,0,.6);
 }
 
 /* profile */
 
 .profile{
 text-align:center;
+margin-bottom:15px;
 }
 
 .profile img{
@@ -108,6 +92,7 @@ margin-top:10px;
 .subtitle{
 color:#f39c12;
 font-weight:700;
+margin-top:4px;
 }
 
 /* features */
@@ -116,33 +101,34 @@ font-weight:700;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:10px;
-margin:15px 0;
+margin-top:15px;
 }
 
 .feature{
 background:#161616;
-padding:10px;
-border-radius:10px;
-font-size:14px;
+padding:12px;
+border-radius:12px;
 text-align:center;
+font-size:14px;
 }
 
 /* slider */
 
 .slider{
-margin:15px 0;
+margin-top:18px;
 }
 
 .slider img{
 width:100%;
-border-radius:12px;
+border-radius:14px;
 }
 
 /* description */
 
 .desc{
+margin-top:18px;
 font-size:14px;
-line-height:1.6;
+line-height:1.7;
 color:#ddd;
 }
 
@@ -150,13 +136,13 @@ color:#ddd;
 
 .call{
 display:block;
+margin-top:18px;
 text-align:center;
-background:linear-gradient(135deg,#f39c12,#ff6b00);
 padding:14px;
-border-radius:12px;
-margin-top:15px;
-text-decoration:none;
+border-radius:14px;
+background:linear-gradient(135deg,#f39c12,#ff6b00);
 color:white;
+text-decoration:none;
 font-weight:700;
 }
 
@@ -167,17 +153,17 @@ right:20px;
 background:#25D366;
 color:white;
 padding:12px 15px;
-border-radius:50px;
-text-decoration:none;
+border-radius:40px;
 font-weight:700;
-box-shadow:0 5px 20px rgba(0,0,0,0.5);
+text-decoration:none;
+box-shadow:0 5px 20px rgba(0,0,0,.6);
 }
 
 /* map */
 
 .map{
 margin-top:20px;
-border-radius:12px;
+border-radius:14px;
 overflow:hidden;
 }
 
@@ -189,15 +175,11 @@ color:#aaa;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<div class="lang">
-<button id="gu" class="active" onclick="lang('gu')">ગુજરાતી</button>
-<button id="hi" onclick="lang('hi')">हिन्दी</button>
-</div>
+<div class="container">
 
 <div class="card">
 
@@ -205,9 +187,9 @@ color:#aaa;
 
 <img src="https://ui-avatars.com/api/?name=Kalpesh+Maheta&background=f39c12&color=fff">
 
-<h1 id="name">કલ્પેશ પ્રવીણ મહેતા</h1>
+<h1>કલ્પેશ પ્રવીણ મહેતા</h1>
 
-<div class="subtitle" id="biz">
+<div class="subtitle">
 અનાજ ખરીદી વ્યવસાય
 </div>
 
@@ -215,35 +197,40 @@ color:#aaa;
 
 <div class="features">
 
-<div class="feature">🌾 <span id="f1">શ્રેષ્ઠ ભાવ</span></div>
-<div class="feature">⚖️ <span id="f2">ચોક્કસ વજન</span></div>
-<div class="feature">💰 <span id="f3">રોકડ ચુકવણી</span></div>
-<div class="feature">🤝 <span id="f4">પાકો વિશ્વાસ</span></div>
+<div class="feature">🌾 શ્રેષ્ઠ ભાવ</div>
+<div class="feature">⚖️ ચોક્કસ વજન</div>
+<div class="feature">💰 રોકડ ચુકવણી</div>
+<div class="feature">🤝 પાકો વિશ્વાસ</div>
 
 </div>
-
-<!-- Image slider -->
 
 <div class="slider">
+
 <img id="slide" src="kalp/photo/photo%20(1).jpeg">
+
 </div>
 
-<p class="desc" id="desc">
+<p class="desc">
 
-અમે ખેડૂતો પાસેથી ઘઉં, બાજરી અને તમામ પ્રકારના અનાજની સીધી ખરીદી કરીએ છીએ.
-પ્રામાણિકતા, યોગ્ય ભાવ અને વિશ્વાસ એ જ અમારી ઓળખ છે.
+અમે ખેડૂતો પાસેથી ઘઉં, બાજરી અને તમામ પ્રકારના અનાજની સીધી ખરીદી કરીએ છીએ.  
+વર્ષોના અનુભવ સાથે અમે ખેડૂતોને યોગ્ય ભાવ, સચોટ વજન અને તરત જ રોકડ ચુકવણી આપીએ છીએ.
+
+પ્રામાણિકતા, વિશ્વાસ અને પારદર્શિતા એ જ અમારી ઓળખ છે.  
+જો તમને અનાજ વેચવાનું હોય અથવા ભાવ વિશે માહિતી જોઈએ હોય તો નિઃસંકોચ સંપર્ક કરો.
 
 </p>
 
-<a href="tel:9825565053" class="call">
-📞 <span id="call">અત્યારે જ કોલ કરો</span>
+<a class="call" href="tel:9825565053">
+
+📞 અત્યારે જ કોલ કરો
+
 </a>
 
 <div class="map">
 
 <iframe
 width="100%"
-height="200"
+height="180"
 frameborder="0"
 style="border:0"
 src="https://maps.google.com/maps?q=vadodara&t=&z=13&ie=UTF8&iwloc=&output=embed"
@@ -253,59 +240,25 @@ allowfullscreen>
 </div>
 
 <div class="footer">
-9825565053 | Kalpesh Pravin Maheta
+
+9825565053  
+કલ્પેશ પ્રવીણ મહેતા
+
+</div>
+
 </div>
 
 </div>
 
 <a class="whatsapp" href="https://wa.me/919825565053">
-💬
+
+💬 WhatsApp
+
 </a>
 
 <script>
 
-/* language */
-
-const text={
-gu:{
-name:"કલ્પેશ પ્રવીણ મહેતા",
-biz:"અનાજ ખરીદી વ્યવસાય",
-f1:"શ્રેષ્ઠ ભાવ",
-f2:"ચોક્કસ વજન",
-f3:"રોકડ ચુકવણી",
-f4:"પાકો વિશ્વાસ",
-desc:"અમે ખેડૂતો પાસેથી ઘઉં, બાજરી અને તમામ પ્રકારના અનાજની સીધી ખરીદી કરીએ છીએ. પ્રામાણિકતા, યોગ્ય ભાવ અને વિશ્વાસ એ જ અમારી ઓળખ છે.",
-call:"અત્યારે જ કોલ કરો"
-},
-hi:{
-name:"कल्पेश प्रवीण महेता",
-biz:"अनाज खरीद व्यवसाय",
-f1:"सर्वोत्तम भाव",
-f2:"सटीक वजन",
-f3:"नकद भुगतान",
-f4:"पक्का भरोसा",
-desc:"हम किसानों से गेहूं, बाजरा और सभी प्रकार के अनाज की सीधी खरीद करते हैं। ईमानदारी और उचित मूल्य हमारी पहचान है।",
-call:"अभी कॉल करें"
-}
-}
-
-function lang(l){
-
-document.getElementById("name").innerText=text[l].name
-document.getElementById("biz").innerText=text[l].biz
-document.getElementById("f1").innerText=text[l].f1
-document.getElementById("f2").innerText=text[l].f2
-document.getElementById("f3").innerText=text[l].f3
-document.getElementById("f4").innerText=text[l].f4
-document.getElementById("desc").innerText=text[l].desc
-document.getElementById("call").innerText=text[l].call
-
-document.getElementById("gu").classList.toggle("active",l==="gu")
-document.getElementById("hi").classList.toggle("active",l==="hi")
-
-}
-
-/* auto slider */
+/* image slider */
 
 const images=[
 "photo/photo%20(1).jpeg",
