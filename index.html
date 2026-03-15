@@ -19,73 +19,100 @@ box-sizing:border-box;
 font-family:'Mukta',sans-serif;
 }
 
-/* Modern animated background */
+/* BLACK ANIMATED BACKGROUND */
 
 body{
 min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(-45deg,#fdf6ec,#ffe0b2,#ffd180,#f39c12);
-background-size:400% 400%;
-animation:gradientBG 10s ease infinite;
+background:#0b0b0b;
+overflow:hidden;
+color:white;
 }
 
-@keyframes gradientBG{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
+/* animated glowing circles */
+
+body::before, body::after{
+content:'';
+position:absolute;
+width:500px;
+height:500px;
+border-radius:50%;
+filter:blur(120px);
+opacity:0.6;
+animation:move 10s infinite alternate;
 }
 
-/* Language buttons */
+body::before{
+background:#f39c12;
+top:-100px;
+left:-100px;
+}
+
+body::after{
+background:#ff6b00;
+bottom:-100px;
+right:-100px;
+}
+
+@keyframes move{
+0%{transform:translate(0,0)}
+100%{transform:translate(200px,150px)}
+}
+
+/* language switch */
 
 .lang-bar{
 position:fixed;
 top:20px;
 right:20px;
-background:rgba(255,255,255,0.8);
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
 padding:5px;
 border-radius:30px;
 display:flex;
-box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
 
 .lang-btn{
 border:none;
 background:none;
 padding:8px 15px;
+color:white;
 cursor:pointer;
-font-weight:700;
 border-radius:20px;
+font-weight:700;
 }
 
 .lang-btn.active{
-background:#c67d1d;
-color:white;
+background:#f39c12;
 }
 
-/* Card */
+/* card */
 
 .card{
+position:relative;
 width:92%;
 max-width:500px;
-background:rgba(255,255,255,0.9);
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
 border-radius:25px;
 padding:30px 20px;
 text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,0.15);
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
 }
 
-/* Profile */
+/* profile */
 
 .profile-img{
 width:120px;
 height:120px;
 border-radius:50%;
-border:5px solid white;
+border:4px solid #f39c12;
 margin-top:-80px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
+
+/* text */
 
 h1{
 margin:15px 0 5px;
@@ -93,12 +120,12 @@ font-size:1.8rem;
 }
 
 .subtitle{
-color:#c67d1d;
+color:#f39c12;
 font-weight:700;
 margin-bottom:20px;
 }
 
-/* Features */
+/* features */
 
 .feature-grid{
 display:grid;
@@ -108,12 +135,12 @@ margin:20px 0;
 }
 
 .feature-item{
-background:#fff7ec;
+background:rgba(255,255,255,0.05);
 padding:12px;
 border-radius:12px;
 }
 
-/* Images */
+/* images */
 
 .gallery{
 display:grid;
@@ -125,17 +152,17 @@ margin:20px 0;
 .gallery img{
 width:100%;
 border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.2);
+box-shadow:0 5px 20px rgba(0,0,0,0.7);
 }
 
-/* Call button */
+/* button */
 
 .call-btn{
 display:flex;
 justify-content:center;
 align-items:center;
 gap:10px;
-background:linear-gradient(135deg,#c67d1d,#f39c12);
+background:linear-gradient(135deg,#f39c12,#ff6b00);
 color:white;
 padding:15px;
 border-radius:16px;
@@ -147,7 +174,7 @@ margin-top:10px;
 .footer{
 margin-top:25px;
 font-size:0.85rem;
-color:#777;
+opacity:0.7;
 }
 
 </style>
@@ -162,7 +189,7 @@ color:#777;
 
 <main class="card">
 
-<img src="https://ui-avatars.com/api/?name=Kalpesh+Maheta&background=c67d1d&color=fff&size=128" class="profile-img">
+<img src="https://ui-avatars.com/api/?name=Kalpesh+Maheta&background=f39c12&color=fff&size=128" class="profile-img">
 
 <h1 id="name">કલ્પેશ પ્રવીણ મહેતા</h1>
 
@@ -177,20 +204,50 @@ color:#777;
 
 </div>
 
-<!-- IMAGE GALLERY -->
+<!-- images -->
 
 <div class="gallery">
 
-<img src="photo/photo%20(1).jpeg" alt="Anaj Image 1">
+<img src="photo/photo%20(1).jpeg">
 
-<img src="photo/photo%20(2).jpeg" alt="Anaj Image 2">
+<img src="photo/photo%20(2).jpeg">
 
 </div>
 
-<p id="desc" style="margin-bottom:25px;color:#555">
+<p id="desc">
 
 અમે ખેડૂતો પાસેથી ઘઉં, બાજરી અને તમામ પ્રકારના અનાજની સીધી ખરીદી કરીએ છીએ.  
 પ્રામાણિકતા અને પારદર્શિતા એ જ અમારી ઓળખ છે.
+
+</p>
+  <p style="margin-top:20px;line-height:1.7;color:#ddd;font-size:16px">
+
+અમે વર્ષોથી ખેડૂતો અને વેપારીઓ વચ્ચે વિશ્વાસનું મજબૂત બંધન બનાવીને અનાજ ખરીદીનો વ્યવસાય ચલાવી રહ્યા છીએ.  
+અમારું મુખ્ય ધ્યેય ખેડૂતોને તેમની મહેનતનું યોગ્ય અને શ્રેષ્ઠ મૂલ્ય મળવું છે.
+
+અહીં ઘઉં, બાજરી અને અન્ય તમામ પ્રકારના અનાજની ખરીદી સંપૂર્ણ પારદર્શિતા અને સચ્ચાઈ સાથે કરવામાં આવે છે.  
+સચોટ વજન, તરત જ રોકડ ચુકવણી અને વિશ્વાસભર્યો વ્યવહાર એ અમારી સૌથી મોટી ઓળખ છે.
+
+અમે દરેક ખેડૂતને પરિવારના સભ્ય જેવી માન્યતા આપીએ છીએ અને તેમના પરિશ્રમને યોગ્ય સન્માન આપીએ છીએ.  
+વર્ષોનો અનુભવ, પ્રામાણિકતા અને ગ્રાહકોનો વિશ્વાસ અમારી સફળતાનો આધાર છે.
+
+જો તમને અનાજ વેચવાનું હોય અથવા યોગ્ય ભાવ વિશે માહિતી જોઈએ હોય,  
+તો નિઃસંકોચ અમારો સંપર્ક કરો.
+
+</p>
+  <p style="margin-top:20px;line-height:1.7;color:#ddd;font-size:16px">
+
+हम कई वर्षों से किसानों और व्यापारियों के बीच भरोसे के साथ अनाज खरीद का व्यवसाय कर रहे हैं।  
+हमारा मुख्य उद्देश्य किसानों को उनकी मेहनत का उचित और सर्वोत्तम मूल्य दिलाना है।
+
+यहाँ गेहूं, बाजरा और सभी प्रकार के अनाज की खरीद पूरी ईमानदारी और पारदर्शिता के साथ की जाती है।  
+सटीक वजन, तुरंत नकद भुगतान और भरोसेमंद व्यवहार हमारी पहचान है।
+
+हम हर किसान को परिवार के सदस्य की तरह मानते हैं और उनकी मेहनत का सम्मान करते हैं।  
+सालों का अनुभव, विश्वास और ईमानदारी ही हमारी सबसे बड़ी पूंजी है।
+
+यदि आपको अनाज बेचना हो या सही भाव की जानकारी चाहिए,  
+तो बेझिझक हमसे संपर्क करें।
 
 </p>
 
@@ -254,6 +311,4 @@ document.getElementById("btn-hi").classList.toggle("active",lang==="hi")
 
 </body>
 </html>
-```
-
 
